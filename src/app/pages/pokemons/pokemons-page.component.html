@@ -3,7 +3,12 @@
 
 <hr class="my-3">
 
+<!-- @if (!isLoading()) { -->
 <pokemon-list />
+<!-- }
+@else {
+<pokemon-list-skeleton />
+} -->
 
 <div class="flex justify-between items-center">
   <button class="mt-2">Previous</button>
