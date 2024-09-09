@@ -9,6 +9,7 @@ import {
 import { PokemonListComponent } from '../../pokemons/components/pokemon-list/pokemon-list.component';
 import { PokemonListSkeletonComponent } from './ui/pokemon-list-skeleton/pokemon-list-skeleton.component';
 import { PokemonsService } from '../../pokemons/services/pokemons.service';
+import { SimplePokemon } from '../../pokemons/interfaces';
 
 @Component({
   selector: 'pokemons-page',
@@ -20,11 +21,15 @@ import { PokemonsService } from '../../pokemons/services/pokemons.service';
 export default class PokemonsPageComponent implements OnInit {
   private pokemonsService = inject(PokemonsService);
 
+  public pokemons = signal<SimplePokemon[]>([]);
+
   ngOnInit(): void {
     this.loadPokemons();
   }
 
   loadPokemons(nextPage = 0) {
-    this.pokemonsService.loadPage(nextPage).subscribe();
+    this.pokemonsService
+      .loadPage(nextPage)
+      .subscribe((pokemons) => this.pokemons.set(pokemons));
   }
 }
