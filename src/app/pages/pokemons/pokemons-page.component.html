@@ -3,12 +3,12 @@
 
 <hr class="my-3">
 
-<!-- @if (!isLoading()) { -->
+@if (pokemons().length !== 0) {
 <pokemon-list [pokemons]="pokemons()" />
-<!-- }
+}
 @else {
 <pokemon-list-skeleton />
-} -->
+}
 
 <div class="flex justify-between items-center">
   <button
