@@ -26,6 +26,6 @@ export class PokemonCardComponent {
   );
 
   logEffect = effect(() => {
-    console.log('Pokemon card:', this.pokemon());
+    // console.log('Pokemon card:', this.pokemon());
   });
 }

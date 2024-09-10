@@ -1,5 +1,5 @@
 <h1 class="text-3xl">Pokemons List</h1>
-<h2 class="text-xl">Page: 13</h2>
+<h2 class="text-xl">Page: {{currentPage()}}</h2>
 
 <hr class="my-3">
 
@@ -11,7 +11,13 @@
 } -->
 
 <div class="flex justify-between items-center">
-  <button class="mt-2">Previous</button>
+  <button
+    (click)="loadPokemons(-1)"
+    class="mt-2"
+  >Previous</button>
 
-  <button class="mt-2">Next</button>
+  <button
+    (click)="loadPokemons(+1)"
+    class="mt-2"
+  >Next</button>
 </div>
