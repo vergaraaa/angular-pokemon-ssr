@@ -39,17 +39,15 @@ export default class PokemonsPageComponent {
 
   public loadOnPageChange = effect(
     () => {
-      this.loadPokemons();
+      this.loadPokemons(this.currentPage());
     },
     { allowSignalWrites: true }
   );
 
-  loadPokemons() {
-    const pageToLoad = this.currentPage()!;
-
+  loadPokemons(page = 0) {
     this.pokemonsService
-      .loadPage(pageToLoad)
-      .pipe(tap(() => this.title.setTitle(`Pokemons SSR - Page ${pageToLoad}`)))
+      .loadPage(page)
+      .pipe(tap(() => this.title.setTitle(`Pokemons SSR - Page ${page}`)))
       .subscribe((pokemons) => this.pokemons.set(pokemons));
   }
 }
