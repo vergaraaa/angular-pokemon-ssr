@@ -33,4 +33,19 @@ describe('App Routes', () => {
 
     expect(location.path()).toBe('/about');
   });
+
+  it('should load the proper component', async () => {
+    const aboutRoute = routes.find((route) => route.path === 'about')!;
+    expect(aboutRoute).toBeDefined();
+    const aboutComponent = (await aboutRoute.loadComponent!()) as any;
+    expect(aboutComponent.default.name).toBe('AboutPageComponent');
+
+    const pokemonsPageRoute = routes.find(
+      (route) => route.path === 'pokemons/page/:page'
+    )!;
+    expect(pokemonsPageRoute).toBeDefined();
+    const pokemonsPageComponent =
+      (await pokemonsPageRoute.loadComponent!()) as any;
+    expect(pokemonsPageComponent.default.name).toBe('PokemonsPageComponent');
+  });
 });

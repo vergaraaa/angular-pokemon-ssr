@@ -50,8 +50,6 @@ describe('AppComponent', () => {
   });
 
   it(`should render the navbar and router-outlet`, () => {
-    console.log(compiled);
-
     expect(compiled.querySelector('app-navbar')).toBeTruthy();
     expect(compiled.querySelector('router-outlet')).toBeTruthy();
   });
