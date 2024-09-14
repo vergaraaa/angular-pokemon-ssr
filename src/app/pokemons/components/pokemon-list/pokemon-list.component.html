@@ -2,10 +2,10 @@
   <!-- pokemon cards -->
   @for (pokemon of pokemons(); track pokemon.id) {
   <pokemon-card [pokemon]="pokemon" />
-  }
-
-  <!-- empty pokemons -->
-  <!-- <div class="col-span-5 text-center border-white h-28 flex justify-center items-center">
+  } @empty {
+  <div class="col-span-5 text-center border-white h-28 flex justify-center items-center">
     No pokemons
-  </div> -->
+  </div>
+
+  }
 </div>
